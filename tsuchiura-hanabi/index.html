@@ -9,6 +9,18 @@
 <link rel="stylesheet" href="leaflet.css?v=20261104-fix">
 <style>
 :root{font-family:system-ui,-apple-system,"Noto Sans TC","Hiragino Kaku Gothic ProN",sans-serif;color:#18363c;background:#f6f3eb;--ink:#17383e;--green:#397b72;--muted:#647b79;--paper:#fffef9;--line:#dbe3da;--coral:#b96351;--gold:#c08b4b}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}a{color:#176d68;text-underline-offset:3px}button{font:inherit;cursor:pointer}p{line-height:1.78}.wrap{max-width:1100px;margin:auto;padding:0 24px}.topbar{border-bottom:1px solid var(--line);background:#f6f3eb}.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;gap:12px}.brand{color:var(--ink);font-size:13px;font-weight:850;letter-spacing:.14em;text-decoration:none}.brand small{display:block;color:#6c8580;font-weight:500;letter-spacing:.12em;font-size:10px;margin-top:4px}.header-buttons{display:flex;align-items:center;gap:10px}.tiny{font-size:12px;color:var(--muted)}.mini-btn{padding:9px 15px;border-radius:30px;border:1px solid #cad7d2;color:var(--ink);background:transparent;font-weight:650}.hero{margin:22px 0 0;background:#153e44;color:#f7f5ec;border-radius:22px;overflow:hidden;position:relative}.hero::before{content:"";position:absolute;width:370px;height:370px;right:-65px;top:-100px;background:radial-gradient(circle,#e6a36f 0 13%,transparent 13% 100%),repeating-conic-gradient(from 0deg,#d9c4a550 0 3deg,transparent 3deg 18deg);border-radius:100%;opacity:.63}.hero-grid{display:grid;grid-template-columns:1.45fr .65fr;gap:25px;align-items:end;padding:50px 50px 46px;min-height:345px;position:relative}.eyebrow{font-size:11px;letter-spacing:.17em;font-weight:800;color:#bce5d7}.hero h1{font-family:Georgia,"Noto Serif TC",serif;font-size:clamp(42px,6.2vw,76px);font-weight:500;line-height:1.15;letter-spacing:-.045em;margin:18px 0}.hero h1 em{font-weight:400;color:#ffcc9a}.hero p{max-width:600px;color:#cbe0d8;margin:0}.hero-time{text-align:center;z-index:1;border:1px solid #ffffff40;background:#ffffff0d;padding:22px 14px;border-radius:16px}.hero-time strong{display:block;font-size:42px;font-variant-numeric:tabular-nums;letter-spacing:-.055em}.hero-time small{color:#cde2d8}.quickbar{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 30px}.quickbar a,.action{display:inline-block;border:1px solid #cdd9d1;background:white;border-radius:40px;padding:11px 15px;color:#1c5956;font-size:13px;font-weight:720;text-decoration:none}.quickbar a:hover,.action:hover{border-color:#559187;background:#e7f4ed}.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:34px}.tile{border:1px solid var(--line);background:var(--paper);padding:21px;border-radius:16px}.tile small{display:block;color:#70837f;font-weight:700;font-size:12px;margin-bottom:9px}.tile b{font-size:20px;font-variant-numeric:tabular-nums}.tile p{font-size:13px;margin:6px 0 0;color:var(--muted)}section{margin:40px 0 64px}.section-top{display:flex;justify-content:space-between;gap:20px;align-items:end;margin:0 0 23px}.section-top h2{font-size:clamp(25px,3.5vw,34px);font-family:Georgia,"Noto Serif TC",serif;font-weight:500;letter-spacing:-.025em;margin:9px 0 0}.section-top p{max-width:380px;font-size:13px;color:var(--muted);margin:0}.section-number{color:var(--green);font-size:11px;letter-spacing:.17em;font-weight:800}.alert{background:#fff3e5;border:1px solid #ecd6bd;border-left:4px solid #b67b3d;padding:19px 23px;border-radius:13px;line-height:1.8;font-size:14px}.alert strong{color:#85552b}.source{display:inline-block;font-size:11px;font-weight:800;border-radius:5px;padding:3px 7px;letter-spacing:.02em;vertical-align:middle;background:#e1eee8;color:#286253}.source.xhs{background:#f9e9e4;color:#a65247}.source.ref{background:#e9ecf2;color:#546474}.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:17px;padding:25px;min-width:0}.panel h3{margin:0 0 10px;font-size:20px}.panel p{color:#536c6a;font-size:14px;margin:8px 0}.panel ul{padding-left:19px;color:#536c6a;line-height:1.85;font-size:14px}.big-number{font-size:31px;font-weight:750;letter-spacing:-.06em;color:var(--ink)}.lead-bold{color:var(--ink);font-weight:750}.mode-switch{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}.mode{background:#fffdf7;border:1px solid #d3ded8;border-radius:14px;padding:16px 20px;text-align:left;flex:1;min-width:200px}.mode strong{display:block;font-size:16px}.mode small{display:block;font-size:12px;color:#72827e;margin-top:5px}.mode[aria-pressed="true"]{background:#e1eee7;border:2px solid #347868;padding:15px 19px}.timeline{border-left:2px solid #bad2c7;margin:14px 0 0 29px}.event{position:relative;display:grid;grid-template-columns:91px 1fr;gap:18px;padding:0 0 27px 20px}.event::before{content:"";position:absolute;left:-7px;top:6px;background:#34786f;border:3px solid #f6f3eb;border-radius:50%;width:12px;height:12px}.event-time{font-weight:750;letter-spacing:-.02em;color:#397d6f}.event h3{font-size:15px;margin:0}.event p{margin:5px 0;font-size:13px;color:#60756f}.event small{font-size:12px;color:#ad654b}.event a{font-size:12px}.table-wrap{overflow-x:auto;border:1px solid var(--line);background:var(--paper);border-radius:15px}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{background:#edf3ec;font-size:12px;color:#376a61}tr:last-child td{border-bottom:0}.mapbox{height:490px;border-radius:17px;border:1px solid #cadbd4;z-index:0;background:#e4eee5}.map-controls{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:0 0 14px}.map-controls label{display:inline-flex;align-items:center;gap:7px;background:white;border:1px solid var(--line);border-radius:40px;padding:8px 12px;font-size:12px}.map-controls input{accent-color:#32776b}.legend{display:flex;gap:15px;flex-wrap:wrap;margin-top:14px;font-size:12px;color:#586e69}.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px}.legend b{font-weight:650}.map-help{font-size:12px;color:#6f8079;margin-top:12px}.pin-links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:17px 0}.pin-link{background:#fffef9;border:1px solid var(--line);border-radius:12px;padding:13px 16px;font-size:13px;text-decoration:none}.pin-link strong{display:block;margin-bottom:4px}.pin-link small{color:#697b76}.notice-text{font-size:12px;color:#788882}.detail-list{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.detail-list .panel h3{font-size:16px}.external{font-size:13px;display:inline-block;margin-top:9px}.source-list{display:grid;gap:12px}.src-item{padding:14px 18px;background:white;border:1px solid var(--line);border-radius:12px}.src-item strong{display:block;font-size:14px;margin-bottom:5px}.src-item p{margin:4px 0 0;color:#667a76;font-size:12px}.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.check{display:flex;gap:10px;background:white;border:1px solid var(--line);padding:13px;border-radius:9px;font-size:13px;line-height:1.5}.check input{accent-color:#367e69}.check:has(input:checked){background:#e4f0e8}footer{border-top:1px solid var(--line);margin-top:65px;padding:26px 0 50px;color:#82918c;font-size:12px}.leaflet-popup-content{line-height:1.65}.leaflet-popup-content a{color:#176d68}@media(max-width:760px){.wrap{padding:0 16px}.hero-grid{grid-template-columns:1fr;padding:30px 25px;gap:20px}.hero-time{text-align:left;width:max-content;max-width:100%}.hero-time strong{font-size:30px}.summary{grid-template-columns:1fr}.cols,.detail-list,.pin-links,.checks{grid-template-columns:1fr}.section-top{display:block}.section-top p{margin-top:10px}.event{grid-template-columns:72px 1fr;gap:9px;padding-left:13px}.timeline{margin-left:10px}.mode{min-width:0}.mapbox{height:410px}.tiny.header-date{display:none}.panel{padding:21px}.topbar .nav{padding:13px 0}.hero h1{font-size:44px}}
+
+/* 花火區域輪廓與高對比的常駐編號，優先照顧手機地圖 */
+.zone-marker-container{background:transparent;border:0}
+.zone-tag{display:flex;justify-content:center;align-items:center;width:35px;height:35px;border:3px solid #fff;border-radius:11px;box-shadow:0 2px 9px #0b263a99;font-size:16px;font-weight:900;line-height:1;color:#fff;text-shadow:0 1px 2px #0008}
+.zone-tag-xhs{background:#1744d9}.zone-tag-official{background:#bb1035;font-size:13px}.zone-tag-paid{background:#a65b07;font-size:13px}
+.legend{padding:13px 15px;border-radius:12px;background:#fff;border:1px solid #d2dcd5}
+.legend .dot{width:15px;height:15px;border:2px solid #ffffff;box-shadow:0 0 0 1px #7d8e8a;margin-right:6px;vertical-align:-2px}
+.map-controls label{border-width:2px;font-weight:720}
+.map-controls label:has(#layerXhs){border-color:#315fff}
+.map-controls label:has(#layerOfficial){border-color:#f3264f}
+.map-controls label:has(#layerPaid){border-color:#f6a51e}
+.map-controls label:has(#layerPlaces){border-color:#0f766e}
 </style></head>
 <body>
 <header class="topbar"><div class="wrap nav"><a class="brand" href="../">◈ TRAVEL PLAN <small>TSUCHIURA / FIREWORKS</small></a><div class="header-buttons"><span class="tiny header-date">2026 · NOV 07 · SAT</span><button type="button" class="mini-btn" id="share">分享 ↗</button></div></div></header>
@@ -26,11 +38,11 @@
 <div class="cols"><div class="panel"><h3>🚆 東京 / 東大朋友</h3><p><strong>東大本鄉周邊 → 上野站 → JR 常磐線 → 土浦站</strong></p><p>上野到土浦：普通車約 70 分鐘／特急約 45 分鐘（未含上野轉車與排隊）；搭往土浦、勝田、水戶方向，確認班次有停土浦。</p><p>11/7 臨時特急例：<b>上野 13:38 → 土浦 14:25</b>（指定席相關條件以 JR 為準）；如要趕 13:45 集合，需搭更早的列車。</p><a class="external" href="https://www.jreast.co.jp/" target="_blank" rel="noopener">JR 東日本 ↗</a>　<a class="external" href="https://www.google.com/maps/dir/?api=1&origin=%E4%B8%8A%E9%87%8E%E9%A7%85&destination=%E5%9C%9F%E6%B5%A6%E9%A7%85&travelmode=transit" target="_blank" rel="noopener">大眾運輸導航 ↗</a></div>
 <div class="panel"><h3>🚲 筑波 / 並木出發</h3><p><strong>並木 → 騎車到荒川沖站 → JR 常磐線 1 站到土浦。</strong></p><p>因花火當天筑波站往土浦的部分公車自 14:10 起停駛，且夜間荒川沖回並木的公車無法配合 20:00 散場，騎車停荒川沖較彈性。請挑可夜間取車的合法自行車停車場並上雙鎖。</p><p>返程：土浦 → 荒川沖 → 取車回並木。騎車、車站排隊與夜間路況時間另計。</p><a class="external" href="https://www.google.com/maps/search/?api=1&query=%E8%8D%92%E5%B7%9D%E6%B2%96%E9%A7%85+%E9%A7%90%E8%BC%AA%E5%A0%B4" target="_blank" rel="noopener">荒川沖駐輪場搜尋 ↗</a></div></div>
 <div class="alert" style="margin-top:17px"><strong>不建議 TX 到筑波再轉公車。</strong>關東鐵道官方確認花火當天筑波站往土浦的路線巴士自 14:10 至末班車停駛。東京朋友直接坐 JR 常磐線最穩。<a href="https://www.kantetsu.co.jp/en/news/bus/post-02509" target="_blank" rel="noopener">交通公司 2026 公告 ↗</a></div></section>
-<section id="map"><div class="section-top"><div><div class="section-number">03 / MAP & CONTROL AREAS</div><h2>位置地圖：候選河岸、管制、餐廳、接駁。</h2></div><p>可開關圖層、點標記導航。色塊是方向示意；精確範圍請點官方 PDF。</p></div>
-<div class="map-controls"><label><input id="layerXhs" type="checkbox" checked> <b>小紅書候選區 1–3</b></label><label><input id="layerOfficial" type="checkbox" checked> <b>2026 官方管制／付費區概略示意</b></label><label><input id="layerPlaces" type="checkbox" checked> <b>餐廳、車站與接駁點</b></label><button class="mini-btn" id="resetMap" type="button">看全部 ↗</button></div>
+<section id="map"><div class="section-top"><div><div class="section-number">03 / MAP & CONTROL AREAS</div><h2>位置地圖：候選河岸、管制、餐廳、接駁。</h2></div><p>可開關圖層、點標記導航。已改為沿河道、街廓的不規則色塊，方便辨認方向；它們不是測繪邊界。</p></div>
+<div class="map-controls"><label><input id="layerXhs" type="checkbox" checked> <b>深藍｜小紅書候選 ①②③</b></label><label><input id="layerOfficial" type="checkbox" checked> <b>紅色｜2026 管制區示意</b></label><label><input id="layerPaid" type="checkbox" checked> <b>橘色｜付費觀覽席示意</b></label><label><input id="layerPlaces" type="checkbox" checked> <b>青綠｜餐廳、車站與接駁點</b></label><button class="mini-btn" id="resetMap" type="button">顯示全部區域 ↗</button></div>
 <p id="mapStatus" class="notice-text" role="status">地圖底圖需連線載入；若空白或方塊錯位，請使用下方 Google Maps 與官方 PDF。</p><div id="mapDisplay" class="mapbox" role="region" aria-label="土浦花火位置互動地圖（OpenStreetMap）"><p style="padding:25px;color:#586e69">載入互動地圖中…需要網路連線。</p></div>
-<div class="legend"><span><i class="dot" style="background:#318b78"></i><b>綠色：</b>小紅書往年候選</span><span><i class="dot" style="background:#dd695c"></i><b>珊瑚色：</b>河道禁入概略段</span><span><i class="dot" style="background:#e6b45f"></i><b>黃色：</b>主會場付費席概略位置</span><span><i class="dot" style="background:#5276b6"></i><b>藍色：</b>交通／店家定位</span></div>
-<p class="map-help"><b>地圖可信度：</b>土浦站、櫻川橋、錢龜橋使用公開地理資料定位；餐廳標記與接駁點為地址／周邊概略定位，點「Google Maps 精確導航」重新查詢。管制線、付費席及小紅書區域皆非精準 GIS 邊界。<b>地圖無法取代 2026 官方管制原圖。</b></p>
+<div class="legend"><span><i class="dot" style="background:#315fff"></i><b>深藍：</b>小紅書往年觀賞候選區（非官方）</span><span><i class="dot" style="background:#f3264f"></i><b>亮紅：</b>2026 禁入範圍方向示意</span><span><i class="dot" style="background:#f6a51e"></i><b>橘黃：</b>付費觀覽席方向示意</span><span><i class="dot" style="background:#0f766e"></i><b>青綠：</b>車站、餐廳、接駁乘車點</span></div>
+<p class="map-help"><b>地圖可信度：</b>土浦站、櫻川橋、錢龜橋使用公開地理資料定位；餐廳標記與接駁點為地址／周邊概略定位，點「Google Maps 精確導航」重新查詢。多邊形依你提供的小紅書地圖與 2026 公告文字手工描繪，未使用官方 GIS 座標，因此不能據此判斷某塊土地可否進入。<b>地圖僅供辨認大致位置，2026 官方管制原圖與現場標示才是依據。</b></p>
 <div class="pin-links"><a class="pin-link" href="https://www.tsuchiura-hanabi.jp/data/doc/1791352178_doc_7_0.pdf" target="_blank" rel="noopener"><strong>📄 2026 官方交通管制圖（2 頁 PDF）</strong><small>第 1 頁看完整管制；第 2 頁有接駁及 JR 臨時列車</small></a><a class="pin-link" href="https://www.tsuchiura-hanabi.jp/page/page000329.html" target="_blank" rel="noopener"><strong>🚧 官方：沒有免費觀覽席</strong><small>道路、通道不得停留觀賞</small></a><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=%E9%8A%AD%E4%BA%80%E6%A9%8B+%E5%9C%9F%E6%B5%A6%E5%B8%82" target="_blank" rel="noopener"><strong>🌉 錢龜橋（銭亀橋）</strong><small>候選區 1 西端地標</small></a><a class="pin-link" href="https://www.google.com/maps/search/?api=1&query=%E6%A1%9C%E5%B7%9D%E6%A9%8B+%E5%9C%9F%E6%B5%A6%E9%A7%85%E5%8D%97" target="_blank" rel="noopener"><strong>🌉 市區櫻川橋（桜川橋）</strong><small>候選區 1 東端地標；不是學園大橋旁同名橋</small></a></div>
 <div class="detail-list"><article class="panel"><span class="source xhs">小紅書 · 往年經驗</span><h3>① 櫻川河岸（首選候選）</h3><p>錢龜橋到市區櫻川橋之間，兩岸河岸與草地，靠站、散場好走；作者偏好北岸。人多、橋梁可能擋住低空煙火。<strong>不是官方免費席。</strong></p></article><article class="panel"><span class="source xhs">小紅書 · 往年經驗</span><h3>② 付費席後方住宅區</h3><p>田中町／立田町等住宅區附近。可能接近正面視角，但建物可能遮擋低空煙火；不能站在道路上定點觀看。</p></article><article class="panel"><span class="source xhs">小紅書 · 往年經驗</span><h3>③ 發射場後方</h3><p>距離土浦站較遠，可能受建物遮擋；AEON MALL 土浦 11/7 整天休業，禁止進入管制區及在其停車場觀賞。<strong>不推薦。</strong></p></article></div>
 <div class="alert" style="margin-top:18px"><strong>官方管制時間：依各路段不同。</strong>主要施放場周邊有 9:00–22:00（部分更早）的禁入；學園大橋至土浦橋一帶河道約 15:00–21:00 禁入，另有道路車行管制。不要把小紅書自行塗藍的區域當作可通行範圍；現場若拉封鎖線就改走，不跨越。</div>
@@ -83,7 +95,7 @@ drawTimeline();
 $('#share').addEventListener('click',function(){var url=location.href;var info='11/7 土浦花火｜17:30–20:00，行程與地圖 '+url;if(navigator.share){navigator.share({title:'土浦花火 2026',text:info,url:url}).catch(function(){});}else if(navigator.clipboard){navigator.clipboard.writeText(url).then(function(){$('#share').textContent='已複製 ✓';}).catch(function(){window.prompt('複製網址',url);});}else window.prompt('複製網址',url);});
 Array.prototype.slice.call(document.querySelectorAll('#checks input')).forEach(function(el,i){try{el.checked=localStorage.getItem('tsuchiura-check-'+i)==='1'}catch(e){}el.addEventListener('change',function(){try{localStorage.setItem('tsuchiura-check-'+i,el.checked?'1':'0')}catch(e){}});});
 if(!window.L){$('#mapDisplay').innerHTML='<p style="padding:23px">互動地圖載入失敗；可使用下方 Google Maps 地點連結及官方 PDF。</p>';return;}
-var map=L.map('mapDisplay',{scrollWheelZoom:false}).setView([36.0794,140.1935],13.6);
+var map=L.map('mapDisplay',{scrollWheelZoom:false}).setView([36.0805,140.1898],13.1);
 var base=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:18,crossOrigin:false}).addTo(map);
 var tileFailures=0;
 base.on('tileerror',function(){
@@ -108,14 +120,80 @@ marker([36.079,140.1936],'魚べい土浦店（地址定位約略）','魚べい
 marker([36.0734,140.2101],'結城寿司（地址定位約略）','結城寿司 茨城県土浦市蓮河原新町7-8','#5276b6');
 marker([36.07778,140.19139],'銭亀橋（候選區 1 西側定位）','銭亀橋 土浦市','#318b78');
 marker([36.07559,140.20161],'市區桜川橋（候選區 1 東側定位）','桜川橋 土浦駅南','#318b78');
-L.polyline([[36.07778,140.19139],[36.0764,140.197],[36.07559,140.20161]],{color:'#318b78',weight:19,opacity:.35}).bindPopup('小紅書候選區 1：銭亀橋～市區桜川橋兩岸（線條僅示意，不代表開放／可佔位）').addTo(groupXhs);
-L.circle([36.0852,140.1875],{radius:370,color:'#318b78',fillColor:'#4aaa88',fillOpacity:.11,weight:2,dashArray:'5 8'}).bindPopup('小紅書候選區 2：付費席後方住宅區（概略、非官方開放區）。').addTo(groupXhs);
-L.circle([36.0749,140.1716],{radius:380,color:'#318b78',fillColor:'#4aaa88',fillOpacity:.11,weight:2,dashArray:'5 8'}).bindPopup('小紅書候選區 3：施放場後方（概略；AEON 當日不得進入使用）。').addTo(groupXhs);
-L.polyline([[36.0872,140.1806],[36.0808,140.1842],[36.0777,140.189]],{color:'#dd695c',weight:25,opacity:.42,dashArray:'12 9'}).bindPopup('2026 官方對學園大橋～土浦橋附近河道有禁入規定；紅色線條僅為方向示意！精確界線請看官方 PDF。').addTo(groupOfficial);
-L.polygon([[36.0849,140.1807],[36.0857,140.1832],[36.0791,140.192],[36.0780,140.189]],{color:'#d5a03f',fillColor:'#e6b45f',fillOpacity:.2,weight:2,dashArray:'6 6'}).bindPopup('主會場付費觀覽席的大致方向（非精確界線）；以官方席位圖和交通管制 PDF 為準。').addTo(groupOfficial);
+// 區域由官方公告及小紅書標註位置「示意描繪」而非 GIS 邊界。
+// 千萬不可據此判斷實際開放、封鎖線、私有土地或通行方向。
+var groupPaid=L.layerGroup().addTo(map);
+function zone(coords,category,number,description,group,labelAt){
+  var config={
+    xhs:{color:'#1744d9',fillColor:'#315fff',fillOpacity:.26,weight:4,dashArray:'10 6'},
+    official:{color:'#bb1035',fillColor:'#f3264f',fillOpacity:.34,weight:4,dashArray:'9 5'},
+    paid:{color:'#ae5d06',fillColor:'#f6a51e',fillOpacity:.37,weight:4,dashArray:'5 5'}
+  }[category];
+  var polygon=L.polygon(coords,Object.assign({lineJoin:'round',interactive:true},config))
+    .bindPopup('<strong>'+number+' '+description+'</strong><br><span>區塊是地圖定位示意，不是精確邊界。<br>禁入與觀賞規定請核對 2026 官方 PDF 及現場告示。</span>');
+  polygon.addTo(group);
+  if(labelAt){
+    var icon=L.divIcon({
+      className:'zone-marker-container',
+      html:'<div class="zone-tag zone-tag-'+category+'">'+number+'</div>',
+      iconSize:[35,35],iconAnchor:[17,17]
+    });
+    L.marker(labelAt,{icon,interactive:false,keyboard:false,zIndexOffset:300}).addTo(group);
+  }
+  return polygon;
+}
+// 【小紅書往年個人經驗】①：銭亀橋至土浦站側桜川橋的河道走向。
+// 沿河曲線改為窄帶多邊形，刻意不代表岸邊全部能坐下或進入。
+zone([
+  [36.07820,140.19132],[36.07784,140.19247],[36.07749,140.19410],
+  [36.07708,140.19587],[36.07686,140.19758],[36.07648,140.19910],
+  [36.07616,140.20055],[36.07573,140.20180],[36.07521,140.20135],
+  [36.07520,140.20017],[36.07552,140.19855],[36.07575,140.19673],
+  [36.07608,140.19518],[36.07652,140.19348],[36.07713,140.19137]
+],'xhs','①','小紅書候選區 1｜錢龜橋～市區櫻川橋沿岸（非官方免費席）',groupXhs,[36.07636,140.19702]);
+// 【小紅書往年個人經驗】②：田中町／立田町等付費席後方住宅街廓。
+zone([
+  [36.08890,140.17884],[36.08955,140.18150],[36.08996,140.18530],
+  [36.08934,140.18866],[36.08912,140.19232],[36.08798,140.19548],
+  [36.08643,140.19602],[36.08501,140.19408],[36.08375,140.19305],
+  [36.08340,140.19010],[36.08388,140.18702],[36.08383,140.18409],
+  [36.08543,140.18104],[36.08712,140.17977]
+],'xhs','②','小紅書候選區 2｜付費席後方住宅區（請勿在道路停留觀賞）',groupXhs,[36.08650,140.18775]);
+// 【小紅書往年個人經驗】③：施放場後方，非推薦；可能疊到 2026 封鎖地帶。
+zone([
+  [36.07637,140.16211],[36.07874,140.16472],[36.07912,140.16810],
+  [36.07865,140.17199],[36.07852,140.17543],[36.07706,140.17808],
+  [36.07480,140.17930],[36.07243,140.17917],[36.07075,140.17681],
+  [36.07014,140.17350],[36.07043,140.16954],[36.07188,140.16527],
+  [36.07383,140.16259]
+],'xhs','③','小紅書候選區 3｜發射場後方；範圍可能涉及 2026 禁入地帶',groupXhs,[36.07408,140.16997]);
+// 【2026 官方限制之文字描述】學園大橋～土浦橋一帶河道 15:00–21:00 禁入。
+// 紅色多邊形僅標示河道方向，非官方精確封鎖線。
+zone([
+  [36.08640,140.17584],[36.08712,140.17882],[36.08640,140.18126],
+  [36.08543,140.18273],[36.08453,140.18428],[36.08370,140.18611],
+  [36.08237,140.18772],[36.08125,140.18909],[36.08006,140.19002],
+  [36.07890,140.19048],[36.07809,140.18891],[36.07853,140.18764],
+  [36.07980,140.18614],[36.08104,140.18461],[36.08223,140.18319],
+  [36.08335,140.18136],[36.08451,140.17962],[36.08522,140.17748]
+],'official','禁','學園大橋～土浦橋附近河道禁入示意（15:00–21:00）',groupOfficial,[36.08266,140.18504]);
+// 【2026 官方周邊管制】施放場安全區域示意；實際邊界請看官方管制圖。
+zone([
+  [36.08075,140.16854],[36.08240,140.17072],[36.08482,140.17478],
+  [36.08416,140.17847],[36.08161,140.18159],[36.07850,140.18398],
+  [36.07570,140.18290],[36.07369,140.17853],[36.07423,140.17479],
+  [36.07649,140.17104],[36.07810,140.16917]
+],'official','禁','施放場及周邊安全管制區示意（道路、河道限制各異）',groupOfficial,[36.07775,140.17623]);
+// 【官方付費觀覽】座席位置根據主會場方向概略圈選；非席次界線。
+zone([
+  [36.08368,140.17742],[36.08407,140.17979],[36.08318,140.18224],
+  [36.08154,140.18425],[36.08026,140.18619],[36.07901,140.18800],
+  [36.07778,140.18888],[36.07659,140.18784],[36.07674,140.18478],
+  [36.07826,140.18246],[36.07973,140.17984],[36.08165,140.17773]
+],'paid','席','主會場付費席位置示意（非精確座席或道路界線）',groupPaid,[36.07982,140.18392]);
 function toggle(id,layer){$(id).addEventListener('change',function(){if(this.checked){map.addLayer(layer)}else{map.removeLayer(layer)}});}
-toggle('#layerXhs',groupXhs);toggle('#layerOfficial',groupOfficial);toggle('#layerPlaces',groupPlaces);
-$('#resetMap').addEventListener('click',function(){map.setView([36.0794,140.1935],13.6);});
+toggle('#layerXhs',groupXhs);toggle('#layerOfficial',groupOfficial);toggle('#layerPaid',groupPaid);toggle('#layerPlaces',groupPlaces);
+$('#resetMap').addEventListener('click',function(){map.fitBounds([[36.0695,140.1610],[36.0915,140.2120]],{padding:[14,14]});});
 })();
 </script>
 </body></html>
