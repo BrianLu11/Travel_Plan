@@ -8,6 +8,7 @@
 
 | 目的地 | 日期 | 人數 | 行程 |
 | --- | --- | --- | --- |
+| 🎆 土浦全國花火競技大會 | 2026/11/7（六） | 東京／筑波旅伴 | [花火、壽司、管制地圖與交通](https://brianlu11.github.io/Travel_Plan/tsuchiura-hanabi/) |
 | 🇯🇵 東京・上野（Ueno） | 2026/10/25（日） | 6 人 | [開啟互動行程](https://brianlu11.github.io/Travel_Plan/ueno-trip/) |
 | 🇯🇵 秩父・長瀞 | 2026/10/30–11/1 | 人數可調 | [開啟三天兩夜行程](https://brianlu11.github.io/Travel_Plan/chichibu-kawagoe/) |
 
@@ -19,6 +20,7 @@
 
 ## ✨ 網站功能
 
+- 🎆 **土浦花火專頁**：2026 官方資訊／往年小紅書經驗分開標示；地圖示意不能取代官方精確管制範圍。
 - 📱 **手機優先**：方便旅伴隨時查閱。
 - 🌐 **繁中／日本語／English**：上野行程支援三語切換，網址可加入 `?lang=ja`、`?lang=en` 或 `?lang=zh-Hant`。
 - ☀️🌦️🌧️ **晴天／小雨／雨天方案**：依現場天氣切換行程。
@@ -45,6 +47,7 @@
 ```text
 Travel_Plan/
 ├── index.html           # 所有旅程的入口首頁
+├── tsuchiura-hanabi/    # 2026/11/7 花火與互動管制位置地圖
 ├── README.md
 ├── expense-tracker/    # 共用分帳功能與 Firebase 規則
 ├── photo-gallery/      # 旅行共享相簿與 Storage 安全規則
