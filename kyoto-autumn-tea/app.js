@@ -149,12 +149,13 @@ let toastTimer = null;
 
 function renderOverview() {
   $('#dayOverview').innerHTML = days.map((d,i) => `
-    <button class="overview-card" type="button" data-go-day="${i}" aria-label="查看 ${esc(d.dateShort.replace(/\s/g,''))} ${esc(d.area)} 的詳細行程">
-      <span class="ov-day">DAY 0${i+1} · ${esc(d.day)}</span>
-      <span class="ov-num">${esc(d.dateShort)}</span>
-      <span class="ov-title">${esc(d.area)}</span>
-      <span class="ov-desc">${esc(d.overview)}</span>
-      <span class="ov-arrow" aria-hidden="true">↗</span>
+    <button class="overview-card" type="button" data-go-day="${i}" aria-pressed="false" aria-controls="dayContent" aria-label="查看 11/${20+i} ${esc(d.area)} 的詳細行程">
+      <span class="ov-icon" aria-hidden="true">${['一','二','三','四','五'][i]}</span>
+      <span class="ov-copy">
+        <span class="ov-day">DAY 0${i+1} · ${esc(d.day)}</span>
+        <strong class="ov-title">${esc(d.area)}</strong>
+        <small class="ov-meta">${esc(d.dateShort.replace(/\s/g,''))} ${esc(d.label)} · ${esc(d.overview)}</small>
+      </span>
     </button>`).join('');
   $('#dayOverview').querySelectorAll('[data-go-day]').forEach(button => {
     button.addEventListener('click', () => {
@@ -163,10 +164,15 @@ function renderOverview() {
     });
   });
 }
+function syncOverviewSelection() {
+  $('#dayOverview').querySelectorAll('[data-go-day]').forEach(button => {
+    button.setAttribute('aria-pressed', String(!showAll && Number(button.dataset.goDay) === activeIndex));
+  });
+}
 function renderTabs() {
   $('#dayTabs').innerHTML = days.map((d,i) => `
     <button type="button" id="tab-day-${i+1}" class="day-tab" role="tab" aria-controls="panel-day-${i+1}" aria-selected="${!showAll && activeIndex===i}" tabindex="${!showAll && activeIndex===i ? 0 : -1}" data-tab="${i}">
-      <span>${esc(d.dateShort)} · ${esc(d.label)}</span><b>${esc(d.area)}</b>
+      <span class="tab-icon" aria-hidden="true">${['一','二','三','四','五'][i]}</span><span class="tab-copy"><strong>Day ${i+1} · ${esc(d.area)}</strong><small>${esc(d.dateShort.replace(/\s/g,''))} ${esc(d.label)}</small></span>
     </button>`).join('');
   $('#dayTabs').querySelectorAll('[data-tab]').forEach(button => {
     button.addEventListener('click', () => setDay(Number(button.dataset.tab)));
@@ -227,12 +233,14 @@ function renderSchedule() {
 function setDay(index,updateHash=true) {
   activeIndex = Math.min(days.length-1,Math.max(0,index));
   showAll = false;
+  syncOverviewSelection();
   renderTabs();
   renderSchedule();
   if (updateHash) history.replaceState(null,'',`#day-${activeIndex+1}`);
 }
 function showAllDays(updateHash=true) {
   showAll = true;
+  syncOverviewSelection();
   renderTabs();renderSchedule();
   if (updateHash) history.replaceState(null,'','#all-days');
 }

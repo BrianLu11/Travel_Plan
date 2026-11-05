@@ -57,3 +57,75 @@ h1,h2,h3,p{margin-top:0}.hero h1{font-family:var(--serif);font-weight:500;font-s
 @media print{.site-header,.hero-buttons,.day-overview,.day-tabs,.all-days-btn,.share-btn,.copy-day,.footer-home,.toast{display:none!important}.hero{min-height:0;background:white;color:black}.hero-copy{padding:8mm 0}.hero-backdrop,.hero-side-label,.hero:after{display:none}.hero h1,.hero h1 em{color:black;font-size:34pt}.hero-data{margin-top:10mm;border-top:1px solid #aaa}.hero-data span,.hero-data strong,.hero-intro,.hero-kicker,.eyebrow-light{color:#333}.intro-section{display:none}.daily-section{background:white;border:0;padding:0}.daily-section .section-head{display:none}.page-wrap{width:100%}.day-panel{break-inside:avoid-page;box-shadow:none;border:1px solid #ddd}.day-panel-head{background:#e6eee6;color:#111}.panel-num,.panel-num span,.panel-intro,.route-chip{color:#333}.route-chip{border-color:#aaa}.day-panel-body{grid-template-columns:1fr 240px}.stay-section{padding:20px 0}.notes-section{padding:10px 0}.checklist{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.day-panel{animation:none}*,*:before,*:after{transition:none!important}}
 
+/* Rounded day selectors: shared visual language with chichibu-kawagoe. */
+.day-overview{
+  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;
+  border:0;background:transparent;box-shadow:none;
+}
+.overview-card,.overview-card:last-child{
+  display:flex;flex-direction:row;align-items:center;gap:12px;
+  min-width:0;min-height:136px;padding:16px 14px;
+  background:#fffdf8;color:#183a37;text-align:left;
+  border:1px solid #d5ded5;border-radius:16px;
+  box-shadow:0 7px 20px #2341370a;transition:background .2s,border-color .2s,transform .2s;
+}
+.overview-card:hover,.overview-card:focus-visible{background:#f4f6ee;border-color:#a8bfb2;transform:translateY(-2px)}
+.overview-card[aria-pressed="true"],.overview-card[aria-pressed="true"]:hover,.overview-card[aria-pressed="true"]:focus-visible{
+  background:#173c38;color:#fffaf0;border-color:#173c38;
+  box-shadow:0 9px 20px #163c3924;
+}
+.ov-icon,.tab-icon{
+  flex:0 0 auto;display:grid;place-items:center;width:44px;height:44px;
+  border-radius:50%;border:1px solid #c5d2c6;
+  font-family:var(--serif);font-size:26px;line-height:1;color:#32554c;
+}
+.overview-card[aria-pressed="true"] .ov-icon,.day-tab[aria-selected="true"] .tab-icon{color:#f3b68c;border-color:#8fa99f}
+.ov-copy{min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:5px;flex:1}
+.overview-card .ov-day{font-size:10px;letter-spacing:.13em;color:#ad734f;font-weight:800;line-height:1.4;margin:0}
+.overview-card .ov-title{font-size:15px;font-weight:750;line-height:1.5;color:inherit}
+.overview-card .ov-meta{font-size:11px;line-height:1.65;color:#778780;overflow-wrap:anywhere}
+.overview-card[aria-pressed="true"] .ov-day{color:#f2ba94}
+.overview-card[aria-pressed="true"] .ov-meta{color:#c3d2ca}
+.tabs-shell{align-items:center;border:0;gap:14px}
+.day-tabs{display:flex;gap:9px;align-items:stretch;overflow-x:auto;padding:3px 2px 13px;scroll-snap-type:x proximity}
+.day-tab{
+  display:flex;align-items:center;gap:10px;min-width:163px;min-height:76px;flex:1 0 163px;
+  padding:13px 12px;background:#fffdf8;color:#24473e;text-align:left;
+  border:1px solid #cbd8ca;border-radius:15px;scroll-snap-align:start;
+  box-shadow:0 4px 12px #183b3110;transition:background .2s,border-color .2s,transform .2s;
+}
+.day-tab:hover{background:#f2f5ec;border-color:#b0c3b6;transform:translateY(-1px)}
+.day-tab[aria-selected="true"],.day-tab[aria-selected="true"]:hover{
+  background:#173c38;color:#fffaf0;border-color:#173c38;box-shadow:0 7px 18px #183c3920;
+}
+.tab-icon{width:39px;height:39px;font-size:24px}
+.tab-copy{display:flex;flex-direction:column;gap:5px;min-width:0}
+.day-tab .tab-copy strong{display:block;font-size:12px;line-height:1.5;letter-spacing:0;white-space:normal}
+.day-tab .tab-copy small{font-size:11px;line-height:1.45;color:#7e8f83;font-weight:500}
+.day-tab[aria-selected="true"] .tab-copy small{color:#c7d9ce}
+.all-days-btn{align-self:center;white-space:nowrap}
+.overview-card:focus-visible,.day-tab:focus-visible{outline:3px solid #dca477;outline-offset:3px}
+@media(max-width:1150px){
+  .day-overview{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .overview-card{min-height:108px}
+}
+@media(max-width:800px){
+  .day-overview{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .overview-card,.overview-card:last-child{min-height:106px;padding:14px}
+}
+@media(max-width:620px){
+  .day-overview{grid-template-columns:1fr;gap:10px}
+  .overview-card,.overview-card:last-child{min-height:84px;padding:12px 14px;gap:13px}
+  .ov-icon{width:43px;height:43px}
+  .overview-card .ov-title{font-size:15px}
+  .overview-card .ov-meta{font-size:11px}
+  .tabs-shell{gap:9px;align-items:center;flex-wrap:wrap}
+  .day-tabs{flex:1 1 100%;gap:9px}
+  .day-tab{min-width:169px;flex:0 0 169px;min-height:73px;padding:11px 12px}
+  .day-tab .tab-copy strong{font-size:12px}
+  .all-days-btn{margin:0 0 12px auto}
+}
+@media(prefers-reduced-motion:reduce){
+  .overview-card,.day-tab{transition:none}
+  .overview-card:hover,.day-tab:hover{transform:none}
+}
