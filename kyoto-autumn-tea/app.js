@@ -172,7 +172,7 @@ function syncOverviewSelection() {
 function renderTabs() {
   $('#dayTabs').innerHTML = days.map((d,i) => `
     <button type="button" id="tab-day-${i+1}" class="day-tab" role="tab" aria-controls="panel-day-${i+1}" aria-selected="${!showAll && activeIndex===i}" tabindex="${!showAll && activeIndex===i ? 0 : -1}" data-tab="${i}">
-      <span class="tab-icon" aria-hidden="true">${['一','二','三','四','五'][i]}</span><span class="tab-copy"><strong>Day ${i+1} · ${esc(d.area)}</strong><small>${esc(d.dateShort.replace(/\s/g,''))} ${esc(d.label)}</small></span>
+      <i class="tab-icon" aria-hidden="true">${['一','二','三','四','五'][i]}</i><span class="tab-copy"><strong>Day ${i+1} · ${esc(d.area)}</strong><small>${esc(d.dateShort.replace(/\s/g,''))} ${esc(d.label)}</small></span>
     </button>`).join('');
   $('#dayTabs').querySelectorAll('[data-tab]').forEach(button => {
     button.addEventListener('click', () => setDay(Number(button.dataset.tab)));
