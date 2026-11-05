@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Travel Plan reusable trip template">
+<title>Travel Plan — Template</title>
+<link rel="stylesheet" href="../shared/trip.css">
+</head>
+<body>
+<header>
+<a class="brand" id="homeLink" href="../../" aria-label="返回 Travel Plan 總首頁">
+<span class="mark" id="mark">旅</span><span class="brand-text"><strong>TRAVEL PLAN ↗</strong><small id="tripLabel">TRIP</small></span>
+</a>
+<nav class="languages" aria-label="Language"><button type="button" data-lang="zh-Hant">中</button><button type="button" data-lang="ja">日</button><button type="button" data-lang="en">EN</button></nav>
+</header>
+<section class="hero"><p class="eyebrow">DAY TRIP / WEATHER FLEXIBLE</p><h1 id="title">旅行行程</h1><p id="subtitle"></p></section>
+<main class="shell"><div class="section-head"><h2 id="pageTitle">旅行時間軸</h2><button class="share" type="button" id="share">分享行程 ↗</button></div><p id="shareStatus" aria-live="polite"></p><nav class="tabs" id="days" aria-label="Day selection"></nav><h2 id="modeTitle">行程方案</h2><nav class="tabs" id="modes" aria-label="Plan selection"></nav><div class="schedule" id="schedule"></div><nav class="tools" id="tools" aria-label="Shared trip tools"></nav><p class="notice" id="templateNotice"></p></main>
+<footer>TRAVEL PLAN · SHARED JOURNEYS <a href="../../">旅行總首頁 ↗</a></footer>
+<script type="module" src="./app.js"></script>
+</body></html>
