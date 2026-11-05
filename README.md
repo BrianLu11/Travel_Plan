@@ -8,6 +8,7 @@
 
 | 目的地 | 日期 | 人數 | 行程 |
 | --- | --- | --- | --- |
+| 🍁 京都紅葉-茶葉之旅 | 2026/11/20–24 | 5 天 4 夜 | [逐小時互動行程](https://brianlu11.github.io/Travel_Plan/kyoto-autumn-tea/) |
 | 🎆 土浦全國花火競技大會 | 2026/11/7（六） | 東京／筑波旅伴 | [花火、壽司、管制地圖與交通](https://brianlu11.github.io/Travel_Plan/tsuchiura-hanabi/) |
 | 🇯🇵 東京・上野（Ueno） | 2026/10/25（日） | 6 人 | [開啟互動行程](https://brianlu11.github.io/Travel_Plan/ueno-trip/) |
 | 🇯🇵 秩父・長瀞 | 2026/10/30–11/1 | 人數可調 | [開啟三天兩夜行程](https://brianlu11.github.io/Travel_Plan/chichibu-kawagoe/) |
@@ -47,6 +48,7 @@
 ```text
 Travel_Plan/
 ├── index.html           # 所有旅程的入口首頁
+├── kyoto-autumn-tea/   # 2026/11/20–24 京都紅葉與茶葉之旅
 ├── tsuchiura-hanabi/    # 2026/11/7 花火與互動管制位置地圖
 ├── README.md
 ├── expense-tracker/    # 共用分帳功能與 Firebase 規則
