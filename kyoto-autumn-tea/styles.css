@@ -98,8 +98,19 @@ h1,h2,h3,p{margin-top:0}.hero h1{font-family:var(--serif);font-weight:500;font-s
 .day-tab[aria-selected="true"],.day-tab[aria-selected="true"]:hover{
   background:#173c38;color:#fffaf0;border-color:#173c38;box-shadow:0 7px 18px #183c3920;
 }
-.tab-icon{width:39px;height:39px;font-size:24px}
-.tab-copy{display:flex;flex-direction:column;gap:5px;min-width:0}
+/* These selectors override the older .day-tab span rule, which was
+   moving the Hanzi to the top-left of the circular icon. */
+.day-tab > .tab-icon{
+  display:grid;place-items:center;align-self:center;
+  width:42px;height:42px;min-width:42px;min-height:42px;
+  margin:0;padding:0;border-radius:50%;
+  font-family:var(--serif);font-size:25px;font-weight:500;
+  line-height:1;letter-spacing:0;text-align:center;
+}
+.day-tab > .tab-copy{
+  display:flex;flex-direction:column;justify-content:center;align-self:center;
+  gap:5px;min-width:0;margin:0;padding:0;
+}
 .day-tab .tab-copy strong{display:block;font-size:12px;line-height:1.5;letter-spacing:0;white-space:normal}
 .day-tab .tab-copy small{font-size:11px;line-height:1.45;color:#7e8f83;font-weight:500}
 .day-tab[aria-selected="true"] .tab-copy small{color:#c7d9ce}
