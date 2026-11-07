@@ -4,7 +4,8 @@ import {calculateLedger, formatMoney, parseAmount, parseShare, equalShares, vali
 const tripId = new URLSearchParams(location.search).get("trip") || "";
 const trips = {
  "ueno-2026": {label:"上野六人旅 · 2026/10/25",path:"../ueno-trip/"},
- "chichibu-kawagoe-2026": {label:"秩父・長瀞 · 2026/10/30–11/1",path:"../chichibu-kawagoe/"}
+ "chichibu-kawagoe-2026": {label:"秩父・長瀞 · 2026/10/30–11/1",path:"../chichibu-kawagoe/"},
+ "tsuchiura-hanabi-2026": {label:"土浦花火大會 · 2026/11/7",path:"../tsuchiura-hanabi/"}
 };
 const trip = trips[tripId];
 const $ = id => document.getElementById(id);

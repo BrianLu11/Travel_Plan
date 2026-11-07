@@ -34,14 +34,14 @@
 
 - 透過 Google 登入，受邀旅伴共同記帳；每趟旅行使用獨立帳本。
 - 預設平均分攤，也能自訂每人的實際消費金額，並提供結算轉帳建議與 CSV 匯出。
-- [上野帳本](https://brianlu11.github.io/Travel_Plan/expense-tracker/?trip=ueno-2026) / [秩父・長瀞帳本](https://brianlu11.github.io/Travel_Plan/expense-tracker/?trip=chichibu-kawagoe-2026)
+- [上野帳本](https://brianlu11.github.io/Travel_Plan/expense-tracker/?trip=ueno-2026) / [秩父・長瀞帳本](https://brianlu11.github.io/Travel_Plan/expense-tracker/?trip=chichibu-kawagoe-2026) / [土浦花火帳本](https://brianlu11.github.io/Travel_Plan/expense-tracker/?trip=tsuchiura-hanabi-2026)
 - [Firebase 設定與安全規則](expense-tracker/README.md)。帳目儲存在 Firestore，請勿把私人帳目提交至公開 GitHub。
 
 ## 📸 共享相簿（Travel Gallery）
 
-- [上野共享相簿](https://brianlu11.github.io/Travel_Plan/photo-gallery/?trip=ueno-2026) / [秩父・長瀞共享相簿](https://brianlu11.github.io/Travel_Plan/photo-gallery/?trip=chichibu-kawagoe-2026)
+- [上野共享相簿](https://brianlu11.github.io/Travel_Plan/photo-gallery/?trip=ueno-2026) / [秩父・長瀞共享相簿](https://brianlu11.github.io/Travel_Plan/photo-gallery/?trip=chichibu-kawagoe-2026) / [土浦花火共享相簿](https://brianlu11.github.io/Travel_Plan/photo-gallery/?trip=tsuchiura-hanabi-2026)
 - 使用同一組 Firebase Google 登入及旅行成員邀請。照片放在 Cloud Storage，照片索引放在 Firestore；詳細部署步驟見 [photo-gallery/README.md](photo-gallery/README.md)。
-- **相簿需完成 Blaze、Storage Bucket、Firestore 與 Storage 規則及 CORS 設定才能實際使用。**
+- **相簿需完成 Blaze、Storage Bucket、Firestore 與 Storage 規則及 CORS 設定才能實際使用。** 土浦另需在 Firebase 建立 `trips/tsuchiura-hanabi-2026` 與管理者會員文件，網址功能才會有存取權限。
 
 ## 📁 專案結構
 

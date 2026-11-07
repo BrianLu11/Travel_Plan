@@ -2,7 +2,7 @@ import {firebaseConfig} from "../expense-tracker/firebase-config.js";
 import {storageBucket} from "./storage-config.js";
 const $=id=>document.getElementById(id);
 const tripId=new URLSearchParams(location.search).get("trip")||"";
-const trips={"ueno-2026":{name:"上野六人旅",url:"../ueno-trip/"},"chichibu-kawagoe-2026":{name:"秩父・長瀞",url:"../chichibu-kawagoe/"}};
+const trips={"ueno-2026":{name:"上野六人旅",url:"../ueno-trip/"},"chichibu-kawagoe-2026":{name:"秩父・長瀞",url:"../chichibu-kawagoe/"},"tsuchiura-hanabi-2026":{name:"土浦花火大會",url:"../tsuchiura-hanabi/"}};
 let app,auth,db,storage,fire,store,me=null,role="",rows=[],cursor=null,busy=false,active=null,urls=new Set(),thumbs=new Map();
 const notice=s=>{$("message").textContent=s;};
 const valid=!!trips[tripId] && /^[a-z0-9-]{1,80}$/.test(tripId);

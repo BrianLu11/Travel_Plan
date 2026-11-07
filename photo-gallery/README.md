@@ -5,11 +5,13 @@ This is a private, per-trip photo gallery backed by Firebase Authentication, Clo
 ## Features
 
 - Reuses the existing Google sign-in, per-trip Firestore \`members\` and \`invites\` collections.
-- Album URL: \`../photo-gallery/?trip=ueno-2026\` (or any existing valid trip ID).
+- Album URLs: \`../photo-gallery/?trip=ueno-2026\`, \`../photo-gallery/?trip=chichibu-kawagoe-2026\`, \`../photo-gallery/?trip=tsuchiura-hanabi-2026\`.
 - Members can upload up to 20 JPG/PNG/WebP images per selection (20 MiB maximum each), see upload progress, browse date-sorted photo thumbnails, open a larger image, and download originals.
 - Uploads include a compressed thumbnail; originals are retained unchanged. Original EXIF may contain GPS/location and camera metadata.
 - Only the uploader or the trip admin can delete a photo; anonymous and non-member reads/writes are denied.
 - **Private download path:** photos use Firebase Storage SDK \`getBlob()\` (with authenticated requests), not permanent public download-token URLs. Each downloaded image remains a copy in the recipient's possession.
+
+For the Tsuchiura album, first bootstrap `trips/tsuchiura-hanabi-2026` and an active admin member in Firestore as described in [the ledger README](../expense-tracker/README.md); members invited from its ledger page can then access this album. Linking the page does not provision its backend.
 
 ## Required setup before testing or merging
 

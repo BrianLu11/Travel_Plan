@@ -19,6 +19,7 @@ A reusable shared expense tracker for every itinerary in Travel Plan. **Not oper
 3. In Firestore **Data**, manually bootstrap the trips and organizer members. Use the exact **UID** from Firebase Authentication → Users after the organizer signs in (before invited joining is possible). Do not confuse email with UID. Create:
    - `trips/ueno-2026`: `{ "currency": "JPY", "name": "上野六人旅" }`
    - `trips/chichibu-kawagoe-2026`: `{ "currency": "JPY", "name": "秩父・長瀞" }`
+   - `trips/tsuchiura-hanabi-2026`: `{ "currency": "JPY", "name": "土浦花火大會" }`
    - Under each trip: `members/YOUR_FIREBASE_UID` document with `{ "active": true, "role": "admin", "email": "your@gmail.com", "displayName": "Organizer" }`. Admin member `joinedAt` is optional in this **console-only** bootstrap. **Keep these documents private; never commit personal emails/UIDs to GitHub.**
 4. Copy your Firebase Web App config values to `expense-tracker/firebase-config.js`: `apiKey`, `authDomain`, `projectId`, `appId`. These public web identifiers are not server-side secrets; the Firestore rules provide the actual protection. Never commit private keys or service account files.
 5. After publishing these files to GitHub Pages, visit an itinerary → **旅行分帳** → **Google 登入**. The admin can invite email addresses from the management panel. Invitees open the same link and click **加入此趟旅行**.
@@ -30,6 +31,8 @@ A reusable shared expense tracker for every itinerary in Travel Plan. **Not oper
 `expense-tracker/index.html?trip=ueno-2026`
 
 `expense-tracker/index.html?trip=chichibu-kawagoe-2026`
+
+`expense-tracker/index.html?trip=tsuchiura-hanabi-2026`
 
 ## Accounting
 
