@@ -1,9 +1,7 @@
 /* Global profile affordance, intentionally scoped to tp- classes only. */
-.tp-profile-identity{display:flex;align-items:center;gap:13px;min-width:0;flex-shrink:0}
-.tp-profile-identity>.brand{min-width:0}
 a.tp-profile-link,header a.tp-profile-link{
   box-sizing:border-box;display:inline-grid;place-items:center;flex:0 0 42px;width:42px;height:42px;min-width:42px;
-  padding:0;margin:0;border-radius:50%;border:2px solid #f9faf7;
+  padding:0;margin:0 0 0 auto;align-self:center;order:999;border-radius:50%;border:2px solid #f9faf7;
   background:#e8eee9;color:#244b44!important;text-decoration:none!important;
   box-shadow:0 0 0 1px #829a8c70,0 2px 9px #102e3220;
   overflow:hidden;position:relative;z-index:2;letter-spacing:normal!important;
@@ -16,14 +14,12 @@ a.tp-profile-link[aria-current="page"]{box-shadow:0 0 0 2px #d49a73}
 .tp-profile-photo{width:100%;height:100%;object-fit:cover}
 .tp-profile-fallback[hidden],.tp-profile-photo[hidden]{display:none!important}
 @media(max-width:700px){
-  .tp-profile-identity{gap:9px}
   a.tp-profile-link,header a.tp-profile-link{flex-basis:36px;width:36px;height:36px;min-width:36px}
+  header.site-header{gap:8px}
+  header.site-header .header-actions,header.site-header .header-side,
+  header.topbar .header-buttons{gap:8px}
 }
 @media(max-width:420px){
-  .tp-profile-identity{gap:7px}
-  .tp-profile-identity .brand-caption small,.tp-profile-identity .brand-text small,.tp-profile-identity .brand small{display:none}
-}
-@media(max-width:365px){
-  .tp-profile-identity .brand-mark{display:none}
+  header.site-header .brand-caption small,header.site-header .brand-text small{display:none}
 }
 @media(prefers-reduced-motion:reduce){a.tp-profile-link{transition:none}}
