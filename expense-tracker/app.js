@@ -5,7 +5,8 @@ const tripId = new URLSearchParams(location.search).get("trip") || "";
 const trips = {
  "ueno-2026": {label:"上野六人旅 · 2026/10/25",path:"../ueno-trip/"},
  "chichibu-kawagoe-2026": {label:"秩父・長瀞 · 2026/10/30–11/1",path:"../chichibu-kawagoe/"},
- "tsuchiura-hanabi-2026": {label:"土浦花火大會 · 2026/11/7",path:"../tsuchiura-hanabi/"}
+ "tsuchiura-hanabi-2026": {label:"土浦花火大會 · 2026/11/7",path:"../tsuchiura-hanabi/"},
+ "kyoto-autumn-tea-2026": {label:"京都紅葉－茶葉之旅 · 2026/11/20–24",path:"../kyoto-autumn-tea/"}
 };
 // Legacy trips keep exact paths; new trips use the shared data-driven itinerary.
 const trip = trips[tripId] || (/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(tripId)&&tripId.length<=60

@@ -35,3 +35,16 @@ test("profile avatar is appended to right-side header actions without moving the
   assert.match(css,/order:999/);
   assert.match(css,/margin:0 0 0 auto/);
 });
+
+test("Kyoto Travel Club trip reuses the existing itinerary and shared services",()=>{
+  const id="kyoto-autumn-tea-2026";
+  const club=fs.readFileSync("travel-club/app.js","utf8");
+  const ledger=fs.readFileSync("expense-tracker/app.js","utf8");
+  const gallery=fs.readFileSync("photo-gallery/app.js","utf8");
+  const kyoto=fs.readFileSync("kyoto-autumn-tea/index.html","utf8");
+  assert.match(club,/id==="kyoto-autumn-tea-2026"\?"\.\.\/kyoto-autumn-tea\/"/);
+  assert.ok(ledger.includes('"'+id+'": {label:'));
+  assert.ok(gallery.includes('"'+id+'":{name:'));
+  assert.ok(kyoto.includes('../expense-tracker/?trip='+id));
+  assert.ok(kyoto.includes('../photo-gallery/?trip='+id));
+});
