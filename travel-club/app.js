@@ -59,10 +59,22 @@ async function enter(user){
     const doc=await fire.getDoc(fire.doc(db,"users",user.uid));
     if(!doc.exists()||doc.data().active!==true){toggle("joinView",true);return;}
     profile=doc.data();toggle("dashboard",true);
-    $("account").textContent=user.displayName+" · "+user.email;
+    $("account").textContent=user.email||"";
+    const name=user.displayName||profile.displayName||user.email||"旅行會員";
+    $("memberName").textContent=name;
+    $("memberRole").textContent=profile.platformAdmin===true?"TRAVEL CLUB / ADMINISTRATOR":"TRAVEL CLUB / MEMBER";
+    const avatar=$("memberAvatar");avatar.replaceChildren();
+    if(user.photoURL){const img=document.createElement("img");img.alt="";img.referrerPolicy="no-referrer";img.onerror=()=>{avatar.textContent=Array.from(name)[0]||"旅";};img.src=user.photoURL;avatar.append(img);}
+    else avatar.textContent=Array.from(name)[0]||"旅";
+    const joined=profile.joinedAt?.toDate?.();
+    $("memberSince").textContent=joined instanceof Date&&!Number.isNaN(joined.getTime())?"會員加入 · "+joined.toLocaleDateString("zh-TW",{year:"numeric",month:"long",timeZone:"Asia/Tokyo"}):"";
     $("points").textContent=String(profile.points||0);
     const can=profile.platformAdmin===true||profile.organizerOverride===true||(Number.isInteger(profile.points)&&profile.points>=100);
-    $("qualification").textContent=can?"可以開團":"一般會員";
+    $("qualification").textContent=can?"可發起旅行":"一般會員";
+    const points=Number.isInteger(profile.points)?Math.max(0,profile.points):0;
+    $("progressRing").style.setProperty("--progress",Math.min(100,points)+"%");
+    $("pointsNeeded").textContent=can?"已取得開團資格":"距離自行開團還差 "+Math.max(0,100-points)+" 點";
+    toggle("organizerHeader",can);
     toggle("organizer",can);
     toggle("publishPanel",can);
     await renderTrips();
@@ -72,13 +84,17 @@ async function renderTrips(){
   if(!me||!profile)return;
   const list=$("tripList");list.replaceChildren();
   const q=await fire.getDocs(fire.collection(db,"users",me.uid,"tripRefs"));
-  if(q.empty){list.textContent="尚未有旅行。收到邀請後可使用上方的旅行 ID 加入。";return;}
+  $("tripCount").textContent=String(q.size);
+  if(q.empty){list.innerHTML='<div class="trip-empty"><b>✦ 下一段旅程，等你出發。</b>收到邀請後，就能從右側的加入表單加入旅程。</div>';return;}
   for(const snapshot of q.docs){
     const record=snapshot.data(),id=snapshot.id;
     const div=document.createElement("article");div.className="trip";
+    const top=document.createElement("div");top.className="trip-top";
+    const kicker=document.createElement("span");kicker.className="trip-kicker";kicker.textContent="TRAVEL JOURNAL / "+String(q.docs.indexOf(snapshot)+1).padStart(2,"0");
+    const tag=document.createElement("span");tag.className="trip-role";tag.textContent=record.role==="admin"?"主辦人":"旅伴";top.append(kicker,tag);div.append(top);
     const title=document.createElement("h3");title.textContent=record.title||id;div.append(title);
-    const desc=document.createElement("p");desc.textContent="旅行 ID："+id+" · 身分："+(record.role==="admin"?"主辦人":"參加者");div.append(desc);
-    const links=document.createElement("p");
+    const desc=document.createElement("p");desc.className="trip-description";desc.textContent="旅行 ID / "+id;div.append(desc);
+    const links=document.createElement("div");links.className="trip-links";
     const addLink=(label,path)=>{const a=document.createElement("a");a.href=path;a.textContent=label;links.append(a)};
     addLink("行程 ↗","../trip/?trip="+encodeURIComponent(id));
     addLink("分帳 ↗","../expense-tracker/?trip="+encodeURIComponent(id));
