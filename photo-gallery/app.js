@@ -5,9 +5,9 @@ const tripId=new URLSearchParams(location.search).get("trip")||"";
 const trips={"ueno-2026":{name:"上野六人旅",url:"../ueno-trip/"},"chichibu-kawagoe-2026":{name:"秩父・長瀞",url:"../chichibu-kawagoe/"},"tsuchiura-hanabi-2026":{name:"土浦花火大會",url:"../tsuchiura-hanabi/"}};
 let app,auth,db,storage,fire,store,me=null,role="",rows=[],cursor=null,busy=false,active=null,urls=new Set(),thumbs=new Map();
 const notice=s=>{$("message").textContent=s;};
-const valid=!!trips[tripId] && /^[a-z0-9-]{1,80}$/.test(tripId);
-$("tripName").textContent=valid?trips[tripId].name+"・共享相簿":"無效的旅程";
-$("back").href=valid?trips[tripId].url:"../";
+const valid=/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(tripId)&&tripId.length<=60&&tripId.length>=4;
+$("tripName").textContent=valid?(trips[tripId]?.name||tripId)+"・共享相簿":"無效的旅程";
+$("back").href=valid?(trips[tripId]?.url||"../trip/?trip="+encodeURIComponent(tripId)):"../";
 const tidyUrl=url=>{if(url){URL.revokeObjectURL(url);urls.delete(url);}};
 function reset(){for(const u of urls)URL.revokeObjectURL(u);urls.clear();thumbs.clear();rows=[];cursor=null;active=null;$("photoGrid").replaceChildren();$("viewer").close?.();$("gallery").hidden=true;}
 const photoRef=(id,uid,kind)=>store.ref(storage,"trip-photos/"+tripId+"/"+uid+"/"+id+"/"+kind);
@@ -39,7 +39,9 @@ async function enter(user){
  if(!user.emailVerified||!user.email){notice("需要已驗證 Email 的 Google 帳號。");return;}
  try{
  const m=await fire.getDoc(fire.doc(db,"trips",tripId,"members",user.uid));
- if(m.exists()&&m.data().active===true){role=m.data().role;$("login").hidden=true;$("gallery").hidden=false;$("account").textContent=user.email;await loadMore();return;}
+ if(m.exists()&&m.data().active===true){
+   try{const t=await fire.getDoc(fire.doc(db,"trips",tripId));if(t.exists()&&t.data().title)$("tripName").textContent=t.data().title+"・共享相簿";}catch{}
+   role=m.data().role;$("login").hidden=true;$("gallery").hidden=false;$("account").textContent=user.email;await loadMore();return;}
  const invitation=await fire.getDoc(fire.doc(db,"trips",tripId,"invites",user.email.toLowerCase()));
  if(invitation.exists()&&invitation.data().active===true){$("joinNote").textContent="你已收到邀請，請按下方按鈕加入。";$("join").hidden=false;}
  else notice("你尚未加入此趟旅行，請主辦人先在共同分帳頁邀請你的 Google Email。");

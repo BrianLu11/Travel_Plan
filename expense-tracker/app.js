@@ -7,7 +7,9 @@ const trips = {
  "chichibu-kawagoe-2026": {label:"秩父・長瀞 · 2026/10/30–11/1",path:"../chichibu-kawagoe/"},
  "tsuchiura-hanabi-2026": {label:"土浦花火大會 · 2026/11/7",path:"../tsuchiura-hanabi/"}
 };
-const trip = trips[tripId];
+// Legacy trips keep exact paths; new trips use the shared data-driven itinerary.
+const trip = trips[tripId] || (/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(tripId)&&tripId.length<=60
+  ? {label:tripId,path:"../trip/?trip="+encodeURIComponent(tripId)} : null);
 const $ = id => document.getElementById(id);
 let auth,db,user,member,unsubscribe=[],members=[],expenses=[],invitations=[],currency="JPY",splitMode="equal",shareDraft=new Map();
 const alertText=(s,bad=false)=>{const el=$("status");el.hidden=false;el.textContent=s;el.className="status "+(bad?"error":"");};
@@ -71,6 +73,7 @@ async function boot(){
    async function start(){
      show("dashboard");$("accountName").textContent=user.email;
      const t=await getDoc(ref);currency=t.exists()&&t.data().currency||"JPY";
+    if(t.exists()){trip.label=t.data().title||trip.label;$("tripName").textContent=trip.label;}
      $("currencyName").textContent=currency;$("amountUnit").textContent=currency;
      watch(users,a=>{members=a.map(x=>({uid:x.id,...x})).filter(x=>x.active);});
      watch(bills,a=>{expenses=a;});

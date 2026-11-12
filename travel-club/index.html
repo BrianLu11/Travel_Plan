@@ -1,0 +1,17 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Travel Plan · 社群</title><link rel="stylesheet" href="./styles.css"></head><body>
+<header><a href="../">◈ TRAVEL PLAN ↗</a><span>TRAVEL CLUB</span></header>
+<main><section class="hero"><small>TRAVEL PLAN / MEMBERSHIP</small><h1>一起旅行，累積下一段旅程。</h1><p>受邀加入 · 出席旅行獲得積分 · 達標後自行開團。</p></section>
+<p id="status" aria-live="polite"></p><section id="loginView" class="card"><h2>Google 登入</h2><button id="signIn">使用 Google 登入</button></section>
+<section id="joinView" class="card" hidden><h2>接受平台邀請</h2><p>新會員從 0 點開始。只有收到其他開團者的邀請才能加入。</p><button id="acceptPlatform">接受邀請</button></section>
+<section id="dashboard" hidden><div class="top"><span id="account"></span><button class="soft" id="signOut">登出</button></div>
+<div class="stats"><section class="card"><p>積分</p><h2 id="points">0</h2></section><section class="card"><p>開團資格</p><h2 id="qualification"></h2></section></div>
+<section class="card" id="organizer" hidden><h2>建立旅行</h2><form id="newTrip" class="fields">
+<label>旅行 ID（英文小寫）<input id="tripId" required pattern="[a-z0-9-]{4,60}" placeholder="kyoto-2027"></label>
+<label>旅行名稱<input id="title" required maxlength="100" placeholder="京都紅葉茶旅"></label>
+<label>開始日期<input id="startsOn" required type="date"></label><label>結束日期<input id="endsOn" required type="date"></label>
+<label>模板<select id="templateType"><option value="day-trip">單日行程</option><option value="multi-day-trip">多日行程</option><option value="event-trip">花火／活動</option><option value="regional-trip">自然／公路旅行</option></select></label>
+<label>幣別<select id="currency"><option>JPY</option><option>TWD</option><option>USD</option><option>KRW</option></select></label><button>建立旅行</button></form>
+<h3>邀請平台新會員</h3><form id="platformInvite"><textarea id="platformEmails" placeholder="每行一個 Google Email" rows="3"></textarea><button>建立平台邀請</button></form></section>
+<section class="card" id="publishPanel" hidden><h2>發布 AI 產生的行程資料</h2><p>先建立旅行，再使用 AI 輸出標準 JSON。發布後，行程頁對所有人公開；請勿包含個人帳務、住址或 Email。</p><form id="publishTrip"><label>旅行 ID<input id="publishId" required placeholder="kyoto-2027"></label><label>行程 JSON<textarea id="itineraryJson" rows="7" required placeholder='{"title":{"zh-Hant":"京都旅行"},"days":[...]}'></textarea></label><button>驗證並發布公開行程</button></form><p><a href="../docs/AI-ITINERARY-CONTRACT.md">查看 AI 行程 JSON 格式說明</a></p></section>
+<section class="card"><h2>加入旅行</h2><form id="joinTrip"><input id="joiningId" required placeholder="輸入受邀旅行的 ID"><button>接受旅行邀請</button></form></section>
+<section class="card"><h2>我的旅行</h2><div id="tripList"></div></section></section></main><footer><a href="../">返回主首頁 ↗</a></footer><script type="module" src="./app.js"></script></body></html>

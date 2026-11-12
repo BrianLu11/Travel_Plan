@@ -35,6 +35,18 @@ service cloud.firestore {
        d.date is string && d.date.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$') &&
        d.createdBy == request.auth.uid && d.createdAt == request.time;
    }
+   match /users/{uid} {
+     allow get: if signedIn() && request.auth.uid == uid;
+     allow list, create, update, delete: if false;
+     match /tripRefs/{tripId} {
+       allow read: if signedIn() && request.auth.uid == uid;
+       allow write: if false;
+     }
+   }
+   match /publishedTrips/{t} {
+     allow get: if resource.data.published == true;
+     allow list, write: if false;
+   }
    match /trips/{t} {
      allow read: if activeMember(t) || invited(t);
      allow write: if false; // Bootstrap via Firebase Console or trusted Admin SDK.
@@ -53,6 +65,9 @@ service cloud.firestore {
        allow get: if activeMember(t) || (signedIn() && uid == request.auth.uid);
        allow list: if activeMember(t);
        allow create: if signedIn() && uid == request.auth.uid && invited(t) &&
+         (!('schemaVersion' in trip(t).data) || trip(t).data.schemaVersion < 2 ||
+          (exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+           get(/databases/$(database)/documents/users/$(request.auth.uid)).data.active == true)) &&
          request.resource.data.keys().hasOnly(memberFields()) &&
          request.resource.data.keys().hasAll(memberFields()) &&
          request.resource.data.email == email() &&

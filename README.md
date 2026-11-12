@@ -30,6 +30,15 @@
 - 🍽️ **聚餐資訊**：適合團體的午晚餐備選方案。
 - 💴 **預算估算與行前清單**：減少臨時找資料的時間。
 
+## 🧭 Travel Club 2.0（邀請制會員社群，開發中）
+
+- [社群會員／開團入口](travel-club/)：Google 登入、平台邀請、積分及開團權限。
+- 每位受邀會員初始為 **0 點**；參與一趟完成且由主辦人確認的旅行得 **20 點**；**100 點**可以建立出遊團。
+- 開團者可在網頁建立旅行、邀請新平台會員及團員。帳本和相簿使用相同的旅行成員資料。
+- [AI 行程資料契約](docs/AI-ITINERARY-CONTRACT.md)：單日、多日、活動、自然四種動態 HTML/CSS/JS 題材。
+- [架構、安全權限與資料模型](docs/TRAVEL-CLUB-ARCHITECTURE.md) / [Firebase 一次性部署與初始化指南](docs/TRAVEL-CLUB-SETUP.md)。
+- **此功能需要部署 Cloud Functions 與更新 Firestore Rules 才能使用；現有網站不會只因 GitHub 合併就完成後端部署。**
+
 ## 💴 多人分帳（Travel Ledger）
 
 - 透過 Google 登入，受邀旅伴共同記帳；每趟旅行使用獨立帳本。
