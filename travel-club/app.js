@@ -96,7 +96,7 @@ async function renderTrips(){
     const desc=document.createElement("p");desc.className="trip-description";desc.textContent="旅行 ID / "+id;div.append(desc);
     const links=document.createElement("div");links.className="trip-links";
     const addLink=(label,path)=>{const a=document.createElement("a");a.href=path;a.textContent=label;links.append(a)};
-    addLink("行程 ↗","../trip/?trip="+encodeURIComponent(id));
+    addLink("行程 ↗",id==="kyoto-autumn-tea-2026"?"../kyoto-autumn-tea/":"../trip/?trip="+encodeURIComponent(id));
     addLink("分帳 ↗","../expense-tracker/?trip="+encodeURIComponent(id));
     addLink("相簿 ↗","../photo-gallery/?trip="+encodeURIComponent(id));div.append(links);
     if(record.role==="admin"){
