@@ -23,3 +23,15 @@ test("profile widget defaults to real navigation even if Firebase is offline",()
   assert.match(code,/link\.href=profileUrl\.href/);
   assert.match(code,/catch\{/);
 });
+
+test("profile avatar is appended to right-side header actions without moving the brand",()=>{
+  const code=fs.readFileSync("shared/profile-nav.js","utf8");
+  const css=fs.readFileSync("shared/profile-nav.css","utf8");
+  for(const selector of ["header .header-actions","header .header-side","header .header-buttons","header.topbar nav","header"]){
+    assert.ok(code.includes('"'+selector+'"'),"missing header target "+selector);
+  }
+  assert.match(code,/target\.append\(link\)/);
+  assert.doesNotMatch(code,/header\.insertBefore\(identity,brand\)/);
+  assert.match(css,/order:999/);
+  assert.match(css,/margin:0 0 0 auto/);
+});

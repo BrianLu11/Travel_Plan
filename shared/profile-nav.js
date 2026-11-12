@@ -19,16 +19,19 @@ photo.alt="";photo.hidden=true;photo.referrerPolicy="no-referrer";
 photo.onerror=()=>{photo.hidden=true;fallback.hidden=false;};
 link.append(fallback,photo);
 
-const header=document.querySelector("header.topbar .nav")||document.querySelector("header");
-if(header){
-  const brand=Array.from(header.children).find(el=>el.matches(".brand, a, b, strong"));
-  if(brand){
-    const identity=document.createElement("div");
-    identity.className="tp-profile-identity";
-    header.insertBefore(identity,brand);
-    identity.append(link,brand);
-  }else header.prepend(link);
-}else document.body.prepend(link);
+// Keep the brand in its original position and place the profile entry after
+// all right-side controls. Each travel page keeps its own header design.
+const headerTargets=[
+  "header .header-actions",  // Ueno and Chichibu: language/share controls
+  "header .header-side",     // Kyoto: date/share controls
+  "header .header-buttons",  // Tsuchiura: date/share controls
+  "header.topbar nav",       // Expense tracker: back/sign-out controls
+  "header.topbar .nav",      // Other nested topbars
+  "header"                   // Home, Club, Gallery, and dynamic trip pages
+];
+const target=headerTargets.map(selector=>document.querySelector(selector)).find(Boolean);
+if(target)target.append(link);
+else document.body.prepend(link);
 
 // Firebase Auth on all pages is optional: a valid link never depends on sign-in.
 async function updateAvatar(){
