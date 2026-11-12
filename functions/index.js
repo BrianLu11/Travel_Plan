@@ -22,7 +22,7 @@ function checkItinerary(input,type){
  const days=input.days.map(day=>{
    if(!day||typeof day!=="object"||!Array.isArray(day.stops)||day.stops.length>60)throw new HttpsError("invalid-argument","每日最多 60 個停靠點");
    return {date:p.date(day.date),label:cleanText(day.label||day.date,80),stops:day.stops.map(stop=>{
-     if(!stop||!/^([01]\\d|2[0-3]):[0-5]\\d$/.test(stop.time))throw new HttpsError("invalid-argument","時間必須使用 HH:MM");
+     if(!stop||!/^([01]\d|2[0-3]):[0-5]\d$/.test(stop.time))throw new HttpsError("invalid-argument","時間必須使用 HH:MM");
      return {time:stop.time,title:cleanText(stop.title,100),description:cleanText(stop.description||"",1500),location:cleanText(stop.location||"",200)};
    })};
  });
