@@ -30,6 +30,8 @@ jobs:
           distribution: "temurin"
           java-version: "21"
       - run: npm install --prefix functions --no-audit --no-fund
+      - name: Audit production dependencies (moderate or higher)
+        run: npm audit --omit=dev --audit-level=moderate --prefix functions
       - run: npm run check --prefix functions
       - run: node --check travel-club/app.js
       - run: node --check expense-tracker/app.js
