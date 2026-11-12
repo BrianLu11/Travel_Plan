@@ -1,0 +1,29 @@
+/* Global profile affordance, intentionally scoped to tp- classes only. */
+.tp-profile-identity{display:flex;align-items:center;gap:13px;min-width:0;flex-shrink:0}
+.tp-profile-identity>.brand{min-width:0}
+a.tp-profile-link,header a.tp-profile-link{
+  box-sizing:border-box;display:inline-grid;place-items:center;flex:0 0 42px;width:42px;height:42px;min-width:42px;
+  padding:0;margin:0;border-radius:50%;border:2px solid #f9faf7;
+  background:#e8eee9;color:#244b44!important;text-decoration:none!important;
+  box-shadow:0 0 0 1px #829a8c70,0 2px 9px #102e3220;
+  overflow:hidden;position:relative;z-index:2;letter-spacing:normal!important;
+  transition:transform .15s,box-shadow .15s;
+}
+a.tp-profile-link:hover,header a.tp-profile-link:hover{transform:translateY(-1px);box-shadow:0 0 0 2px #dba47a,0 5px 14px #102e322b}
+a.tp-profile-link:focus-visible,header a.tp-profile-link:focus-visible{outline:3px solid #dba47a;outline-offset:3px}
+a.tp-profile-link[aria-current="page"]{box-shadow:0 0 0 2px #d49a73}
+.tp-profile-fallback{width:100%;height:100%;display:grid;place-items:center;background:linear-gradient(135deg,#e6f0e8,#cfdfd3);color:#27544b;font:700 18px/1 system-ui,sans-serif}
+.tp-profile-photo{width:100%;height:100%;object-fit:cover}
+.tp-profile-fallback[hidden],.tp-profile-photo[hidden]{display:none!important}
+@media(max-width:700px){
+  .tp-profile-identity{gap:9px}
+  a.tp-profile-link,header a.tp-profile-link{flex-basis:36px;width:36px;height:36px;min-width:36px}
+}
+@media(max-width:420px){
+  .tp-profile-identity{gap:7px}
+  .tp-profile-identity .brand-caption small,.tp-profile-identity .brand-text small,.tp-profile-identity .brand small{display:none}
+}
+@media(max-width:365px){
+  .tp-profile-identity .brand-mark{display:none}
+}
+@media(prefers-reduced-motion:reduce){a.tp-profile-link{transition:none}}
