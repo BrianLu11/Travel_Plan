@@ -12,5 +12,6 @@
 <label>模板<select id="templateType"><option value="day-trip">單日行程</option><option value="multi-day-trip">多日行程</option><option value="event-trip">花火／活動</option><option value="regional-trip">自然／公路旅行</option></select></label>
 <label>幣別<select id="currency"><option>JPY</option><option>TWD</option><option>USD</option><option>KRW</option></select></label><button>建立旅行</button></form>
 <h3>邀請平台新會員</h3><form id="platformInvite"><textarea id="platformEmails" placeholder="每行一個 Google Email" rows="3"></textarea><button>建立平台邀請</button></form></section>
+<section class="card" id="publishPanel" hidden><h2>發布 AI 產生的行程資料</h2><p>先建立旅行，再使用 AI 輸出標準 JSON。發布後，行程頁對所有人公開；請勿包含個人帳務、住址或 Email。</p><form id="publishTrip"><label>旅行 ID<input id="publishId" required placeholder="kyoto-2027"></label><label>行程 JSON<textarea id="itineraryJson" rows="7" required placeholder='{"title":{"zh-Hant":"京都旅行"},"days":[...]}'></textarea></label><button>驗證並發布公開行程</button></form><p><a href="../docs/AI-ITINERARY-CONTRACT.md">查看 AI 行程 JSON 格式說明</a></p></section>
 <section class="card"><h2>加入旅行</h2><form id="joinTrip"><input id="joiningId" required placeholder="輸入受邀旅行的 ID"><button>接受旅行邀請</button></form></section>
 <section class="card"><h2>我的旅行</h2><div id="tripList"></div></section></section></main><footer><a href="../">返回主首頁 ↗</a></footer><script type="module" src="./app.js"></script></body></html>
