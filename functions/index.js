@@ -35,7 +35,8 @@ exports.publishItinerary=callable(async req=>{
  if(!trip.exists||!member.exists||member.data().active!==true||member.data().role!=="admin")throw new HttpsError("permission-denied","僅主辦人可以發布行程");
  const serialized=JSON.stringify(req.data?.itinerary||{});
  if(serialized.length>120000)throw new HttpsError("invalid-argument","公開行程 JSON 不可超過 120 KB");
- const safe=checkItinerary(req.data?.itinerary,trip.data().templateType);
+ const selectedTheme=p.TYPES.includes(trip.data().templateType)?trip.data().templateType:"day-trip";
+ const safe=checkItinerary(req.data?.itinerary,selectedTheme);
  if(safe.days.some(day=>day.date<trip.data().startsOn||day.date>trip.data().endsOn))
    throw new HttpsError("invalid-argument","公開行程日期必須在旅行日期範圍內");
  await db.doc("publishedTrips/"+id).set({...safe,published:true,tripId:id,updatedBy:u.uid,updatedAt:FieldValue.serverTimestamp()});
