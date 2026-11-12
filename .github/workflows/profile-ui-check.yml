@@ -1,0 +1,30 @@
+name: Member profile navigation checks
+on:
+  pull_request:
+    paths:
+      - "shared/**"
+      - "travel-club/**"
+      - "index.html"
+      - "*/index.html"
+      - "tests/profile-ui.test.cjs"
+      - ".github/workflows/profile-ui-check.yml"
+  push:
+    branches: [main]
+    paths:
+      - "shared/**"
+      - "travel-club/**"
+      - "index.html"
+      - "*/index.html"
+      - "tests/profile-ui.test.cjs"
+      - ".github/workflows/profile-ui-check.yml"
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+      - run: node --check shared/profile-nav.js
+      - run: node --check travel-club/app.js
+      - run: node --test tests/profile-ui.test.cjs
