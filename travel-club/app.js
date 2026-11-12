@@ -37,6 +37,13 @@ async function load(){
     tell("已建立 "+r.invited+" 個平台邀請。請將本頁連結傳給受邀者。");
     $("platformEmails").value="";
   });
+  formHandler("publishTrip",async()=>{
+    let data;
+    try{data=JSON.parse($("itineraryJson").value)}catch{throw Error("行程內容不是有效 JSON")}
+    const id=$("publishId").value.trim();if(!tripId(id))throw Error("旅行 ID 不正確");
+    const result=await call("publishItinerary",{tripId:id,itinerary:data});
+    tell("已發布公開行程："+result.url);
+  });
   formHandler("joinTrip",async()=>{
     const id=$("joiningId").value.trim();if(!tripId(id))throw Error("旅行 ID 無效");
     await call("acceptTripInvite",{tripId:id});tell("已成功加入 "+id);
@@ -57,6 +64,7 @@ async function enter(user){
     const can=profile.platformAdmin===true||profile.organizerOverride===true||(Number.isInteger(profile.points)&&profile.points>=100);
     $("qualification").textContent=can?"可以開團":"一般會員";
     toggle("organizer",can);
+    toggle("publishPanel",can);
     await renderTrips();
   }catch(e){tell("讀取會員資訊失敗："+e.message)}
 }
