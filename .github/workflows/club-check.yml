@@ -1,0 +1,30 @@
+name: Travel Club backend checks
+on:
+  pull_request:
+    paths:
+      - "functions/**"
+      - "travel-club/**"
+      - "expense-tracker/**"
+      - "photo-gallery/**"
+      - ".github/workflows/club-check.yml"
+  push:
+    branches: [main]
+    paths:
+      - "functions/**"
+      - "travel-club/**"
+      - "expense-tracker/**"
+      - "photo-gallery/**"
+      - ".github/workflows/club-check.yml"
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install --prefix functions --no-audit --no-fund
+      - run: npm run check --prefix functions
+      - run: node --check travel-club/app.js
+      - run: node --check expense-tracker/app.js
+      - run: node --check photo-gallery/app.js
