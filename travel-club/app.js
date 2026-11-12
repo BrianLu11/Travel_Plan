@@ -74,6 +74,7 @@ async function enter(user){
     const points=Number.isInteger(profile.points)?Math.max(0,profile.points):0;
     $("progressRing").style.setProperty("--progress",Math.min(100,points)+"%");
     $("pointsNeeded").textContent=can?"已取得開團資格":"距離自行開團還差 "+Math.max(0,100-points)+" 點";
+    toggle("organizerHeader",can);
     toggle("organizer",can);
     toggle("publishPanel",can);
     await renderTrips();
