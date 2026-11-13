@@ -60,9 +60,13 @@ Travel_Plan/
 ├── kyoto-autumn-tea/   # 2026/11/20–24 京都紅葉與茶葉之旅
 ├── tsuchiura-hanabi/    # 2026/11/7 花火與互動管制位置地圖
 ├── README.md
+├── AGENTS.md            # 開發／AI 修改守則
+├── docs/                # 網站架構及設計規範
+├── templates/           # 單日／多日模板與共用程式
+├── scripts/             # 新行程產生器及自動檢查
 ├── expense-tracker/    # 共用分帳功能與 Firebase 規則
 ├── photo-gallery/      # 旅行共享相簿與 Storage 安全規則
-└── ueno-trip/
+├── ueno-trip/
     ├── index.html       # 上野六人一日遊
     ├── app.js           # 行程切換及互動功能
     ├── i18n.js          # 三語翻譯字典及切換
@@ -75,11 +79,21 @@ Travel_Plan/
     └── favicon.svg
 ```
 
+## 🧱 架構、模板與回歸檢查
+
+- [網站架構、設計系統與安全規範](docs/ARCHITECTURE.md)
+- [新行程模板說明（單日／多日）](templates/README.md)
+- [AI／開發者修改守則](AGENTS.md)
+- 建立新行程：`node scripts/new-trip.mjs day-trip my-trip` 或 `multi-day-trip my-trip`
+- 檢查站內連結、JS 語法與首頁導覽：`node scripts/check-site.mjs`（PR 會自動執行）
+
+新行程使用資料檔 `trip-data.js` + 共用 `templates/shared/` 顯示引擎。既有上野和秩父頁面目前仍維持個別程式碼，以避免無謂的線上功能風險。
+
 ## 🚀 使用與更新
 
 本站是 **HTML + CSS + JavaScript** 靜態網站，不需要安裝 Node.js 或額外套件。可以直接打開 `index.html` 查看；公開分享則使用 GitHub Pages。
 
-新增旅行時，建立新資料夾（例如 `kawagoe-trip/`），放入 `index.html` 等檔案，再在根目錄 `index.html` 加入該行程入口。
+新增旅行時，請優先使用上述模板產生器建立新資料夾，修改 `trip-data.js`，再在根目錄 `index.html` 加入該行程入口。
 
 GitHub Pages 設定：**Settings → Pages → Deploy from a branch → `main` / `(root)`**。之後推送到 `main` 的變更會由 GitHub Pages 重新部署。
 
